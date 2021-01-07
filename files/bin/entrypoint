@@ -31,10 +31,10 @@ echo
 
 echo
 echo "***************"
-echo "Running NSCLD"
+echo "Running SSSD"
 echo "***************"
 echo
-nslcd
+/usr/sbin/sssd -D -d 7
 
 echo
 echo "***************"

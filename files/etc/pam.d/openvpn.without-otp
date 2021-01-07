@@ -1,5 +1,7 @@
 #%PAM-1.0
 
-auth required pam_ldap.so
-
-account sufficient pam_permit.so
+auth        requisite     pam_succeed_if.so uid >= 1000 quiet_success
+auth        sufficient    pam_sss.so
+auth        required      pam_deny.so
+account     [default=bad success=ok user_unknown=ignore] pam_sss.so
+account     required      pam_permit.so
